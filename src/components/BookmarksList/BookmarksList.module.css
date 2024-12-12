@@ -1,0 +1,12 @@
+.container {
+	text-align: center;
+}
+.scrollContainer {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 16px;
+}
+
+h2 {
+	text-align: left;
+}

@@ -1,0 +1,12 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 500px;
+
+	.scrollContainer {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 16px;
+	}
+}
