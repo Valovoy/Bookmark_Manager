@@ -8,20 +8,20 @@ import SearchPage from './pages/SearchPage'
 import './App.css'
 
 function App() {
-	return (
-		<QueryProvider>
-			<Navigation />
+  return (
+    <QueryProvider>
+      <Navigation />
 
-			<BookmarksProvider>
-				<div className='wrapper'>
-					<Routes>
-						<Route path='/' element={<SearchPage />} />
-						<Route path='/bookmarks' element={<BookmarksPage />} />
-					</Routes>
-				</div>
-			</BookmarksProvider>
-		</QueryProvider>
-	)
+      <BookmarksProvider>
+        <div className="wrapper">
+          <Routes>
+            <Route path="/" element={<SearchPage />} />
+            <Route path="/bookmarks" element={<BookmarksPage />} />
+          </Routes>
+        </div>
+      </BookmarksProvider>
+    </QueryProvider>
+  )
 }
 
 export default App

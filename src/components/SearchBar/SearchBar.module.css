@@ -1,16 +1,16 @@
 .searchBar {
-	display: flex;
-	align-items: center;
-	margin-bottom: 16px;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  justify-content: center;
 }
 
 .input {
-	max-width: 500px;
+  max-width: 500px;
 }
 
 .btn {
-	padding: 8px 12px;
-	margin-left: 8px;
-	border-radius: 8px;
+  padding: 8px 12px;
+  margin-left: 8px;
+  border-radius: 8px;
 }

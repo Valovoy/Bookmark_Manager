@@ -6,50 +6,50 @@ import PhotoItem from '../PhotoItem/PhotoItem'
 import styles from './GalleryList.module.css'
 
 interface IProps {
-	query: string
+  query: string
 }
 
 const GalleryList = ({ query }: IProps) => {
-	const {
-		data = { pages: [] },
-		isLoading,
-		fetchNextPage,
-		hasNextPage,
-	} = useInfiniteQuery({
-		queryKey: ['photos', query],
-		queryFn: ({ pageParam }) => fetchPhotos(query, pageParam),
-		initialPageParam: 1,
-		getNextPageParam: lastPage =>
-			lastPage.next_page ? lastPage.page + 1 : undefined,
-	})
+  const {
+    data = { pages: [] },
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteQuery({
+    queryKey: ['photos', query],
+    queryFn: ({ pageParam }) => fetchPhotos(query, pageParam),
+    initialPageParam: 1,
+    getNextPageParam: lastPage =>
+      lastPage.next_page ? lastPage.page + 1 : undefined,
+  })
 
-	const photos = data?.pages.flatMap(page => page.photos) || []
+  const photos = data?.pages.flatMap(page => page.photos) || []
 
-	return (
-		<div id='scrollableDiv' className={styles.container}>
-			{isLoading ? (
-				<Loader />
-			) : (
-				<InfiniteScroll
-					className={styles.scrollContainer}
-					hasMore={hasNextPage}
-					next={fetchNextPage}
-					loader={<h4>Loading...</h4>}
-					dataLength={photos.length}
-					scrollableTarget='body'
-				>
-					{photos?.map(({ id, photographer, src, alt }) => (
-						<PhotoItem
-							key={id}
-							id={id}
-							src={src}
-							alt={alt}
-							photographer={photographer}
-						/>
-					))}
-				</InfiniteScroll>
-			)}
-		</div>
-	)
+  return (
+    <div id="scrollableDiv" className={styles.container}>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <InfiniteScroll
+          className={styles.scrollContainer}
+          hasMore={hasNextPage}
+          next={fetchNextPage}
+          loader={<h4>Loading...</h4>}
+          dataLength={photos.length}
+          scrollableTarget="body"
+        >
+          {photos?.map(({ id, photographer, src, alt }) => (
+            <PhotoItem
+              key={id}
+              id={id}
+              src={src}
+              alt={alt}
+              photographer={photographer}
+            />
+          ))}
+        </InfiniteScroll>
+      )}
+    </div>
+  )
 }
 export default GalleryList
