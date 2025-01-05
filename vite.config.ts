@@ -11,5 +11,12 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [react()],
     base: './',
+    server: {
+      port: 3000,
+      host: true,
+      watch: {
+        usePolling: true,
+      },
+    },
   }
 })
